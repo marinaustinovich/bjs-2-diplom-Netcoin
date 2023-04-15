@@ -216,13 +216,14 @@ class ApiConnector {
   static transferMoney({ to, currency, amount }, callback) {
     const asyncPart = async () => {
       const body = JSON.stringify({ to, currency, amount });
-
+  
       const response = await fetch('/money/transfer', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body,
       });
       const result = await ApiConnector.parseResponseBody(response);
+
       return result;
     };
     asyncPart()

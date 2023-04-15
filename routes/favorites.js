@@ -16,6 +16,7 @@ router.get('/', (request, response) => {
   }
 
   const favorites = db.get('favorites').value()[user.id];
+  console.log(db.get('favorites').value())
   response.json({ success: true, data: favorites || {} });
 });
 
